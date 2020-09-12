@@ -4,7 +4,7 @@ Title: Speedtest by Ookla Global Fixed and Mobile Network Performance Map Tiles
 Version: 0.1.0
 Authors@R: c(person("Katie", "Jolly", email = "katie.jolly@ookla.com",
                   role = c("aut", "cre")),
-             person("Sheryl", "Peterson", role = c("ctb")))
+             person("Sheryl", "Petersen", role = c("ctb")))
 Maintainer: Katie Jolly <katie.jolly@ookla.com>
 Description: This dataset provides global fixed broadband and mobile 
     (cellular) network performance metrics in zoom level 16 web mercator 

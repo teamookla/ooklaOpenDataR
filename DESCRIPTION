@@ -6,16 +6,17 @@ Version: 0.1.0
 Authors@R:
     c(person(given = "Katie",
              family = "Jolly",
-             role = c("aut", "cre"),
-             email = "katie.jolly@ookla.com"),
+             role = c("aut", "cre")),
       person(given = "Sheryl",
              family = "Petersen",
-             role = "aut", "cre"),
+             role = c("aut", "cre")),
       person(given = "Brian",
              family = "Connelly",
-             role = "aut", "cre"),
+             role = c("aut", "cre"),
+             comment = c(ORCID = "0000-0002-9948-0379")),
       person(given = "Ookla",
-             role = c("cph", "fnd")))
+             role = c("cph", "fnd")),
+             email = "TODO@ookla.com")
 Maintainer: Katie Jolly <katie.jolly@ookla.com>
 Description: This dataset provides global fixed broadband and
     mobile (cellular) network performance metrics in zoom level 16 web

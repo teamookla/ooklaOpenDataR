@@ -10,7 +10,10 @@ Authors@R:
              email = "katie.jolly@ookla.com"),
       person(given = "Sheryl",
              family = "Petersen",
-             role = "ctb"),
+             role = "aut", "cre"),
+      person(given = "Brian",
+             family = "Connelly",
+             role = "aut", "cre"),
       person(given = "Ookla",
              role = c("cph", "fnd")))
 Maintainer: Katie Jolly <katie.jolly@ookla.com>

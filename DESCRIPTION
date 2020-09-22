@@ -20,7 +20,8 @@ LazyData: true
 Suggests: 
     testthat,
     sf,
-    wk
+    wk,
+    slippymath
 Imports: 
     arrow
 RoxygenNote: 6.1.1

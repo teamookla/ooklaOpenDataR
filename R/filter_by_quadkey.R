@@ -45,8 +45,7 @@ tileXYToQuadKey <- function(xTile, yTile, z) {
 filter_by_quadkey <- function(tiles, bbox) {
   tile_grid <- slippymath::bbox_to_tile_grid(bbox, zoom = 16)
   quadkeys <- pmap(list(tile_grid$tiles$x, tile_grid$tiles$y, 16), tileXYToQuadKey)
-  perf_tiles <- tiles %>%
-    filter(quadkey %in% quadkeys)
+  perf_tiles <- tiles[tiles$quadkey %in% quadkeys]
   return(perf_tiles)
 }
 

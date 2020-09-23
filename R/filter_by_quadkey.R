@@ -35,7 +35,7 @@ tileXYToQuadKey <- function(xTile, yTile, z) {
 }
 
 
-#' Pull Performance Tiles
+#' Filter Performance Tiles by Quadkey
 #'
 #' @param tiles Tiles to filter
 #' @param bbox Bounding box to pull tiles from. This way you can just get the specific tiles that you need for an analysis

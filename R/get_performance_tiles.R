@@ -40,7 +40,7 @@ get_performance_tiles <- function(service = c("mobile", "fixed"), year, quarter,
     assertthat::is.flag(sf)
   )
 
-  quarter_start <- paste(year, sprintf("%02d", ((quarter-1)*3) + 1), "01", sep="-")
+  quarter_start <- paste(year, sprintf("%02d", ((quarter - 1) * 3) + 1), "01", sep = "-")
 
   target_url <- stringr::str_glue("https://ookla-open-data.s3.us-west-2.amazonaws.com/parquet/performance/type={service}/year={year}/quarter={quarter}/{quarter_start}_performance_{service}_tiles.parquet")
 

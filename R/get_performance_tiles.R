@@ -24,6 +24,9 @@
 #' \dontrun{
 #' # Pulls all fixed broadband tiles from Q2 2020
 #' get_performance_tiles(service = "fixed", quarter = "2020-04-01", sf = TRUE)
+#'
+#' # Get mobile quadkey and average download speeds for Q1 2020
+#' get_performance_tiles(service = "mobile", quarter = "2020-01-01", col_select = c("quadkey", "avg_d_kbps"))
 #' }
 get_performance_tiles <- function(service = c("mobile", "fixed"), quarter, bbox = NULL, sf = FALSE, ...) {
   service <- rlang::arg_match(service)

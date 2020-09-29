@@ -43,5 +43,8 @@ This equates to a tile that is approximately 610.8 meters by 610.8 meters at the
 \dontrun{
 # Pulls all fixed broadband tiles from Q2 2020
 get_performance_tiles(service = "fixed", quarter = "2020-04-01", sf = TRUE)
+
+# Get mobile quadkey and average download speeds for Q1 2020
+get_performance_tiles(service = "mobile", quarter = "2020-01-01", col_select = c("quadkey", "avg_d_kbps"))
 }
 }

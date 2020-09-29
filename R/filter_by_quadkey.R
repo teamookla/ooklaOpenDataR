@@ -44,10 +44,9 @@ tileXYToQuadKey <- function(xTile, yTile, z) {
 
 filter_by_quadkey <- function(tiles, bbox) {
   # make sure the coordinates are lat/lon
-  bbox = st_bbox(st_transform(st_as_sfc(bbox), 4326))
+  bbox = sf::st_bbox(sf::st_transform(sf::st_as_sfc(bbox), 4326))
   tile_grid <- slippymath::bbox_to_tile_grid(bbox, zoom = 16)
   quadkeys <- mapply(tileXYToQuadKey, xTile = tile_grid$tiles$x, yTile = tile_grid$tiles$y, MoreArgs = list(z = 16))
   perf_tiles <- tiles[tiles$quadkey %in% quadkeys]
   return(perf_tiles)
 }
-

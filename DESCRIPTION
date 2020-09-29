@@ -6,17 +6,18 @@ Version: 0.1.0
 Authors@R:
     c(person(given = "Katie",
              family = "Jolly",
-             role = c("aut", "cre")),
+             role = c("aut", "cre"),
+             email = "TODO@ookla.com"),
       person(given = "Sheryl",
              family = "Petersen",
-             role = c("aut", "cre")),
+             role = "aut"),
       person(given = "Brian",
              family = "Connelly",
-             role = c("aut", "cre"),
+             role = "aut",
              comment = c(ORCID = "0000-0002-9948-0379")),
       person(given = "Ookla",
-             role = c("cph", "fnd")),
-             email = "TODO@ookla.com")
+             role = c("cph", "fnd"),
+             email = "TODO@ookla.com"))
 Maintainer: Katie Jolly <katie.jolly@ookla.com>
 Description: This dataset provides global fixed broadband and
     mobile (cellular) network performance metrics in zoom level 16 web
@@ -29,7 +30,11 @@ Description: This dataset provides global fixed broadband and
     containing GPS-quality location accuracy.
 License: What license is it under?
 Imports: 
-    arrow
+    arrow,
+    httr,
+    lubridate,
+    rlang,
+    stringr
 Suggests: 
     sf,
     testthat,

@@ -4,11 +4,19 @@
 \alias{get_performance_tiles}
 \title{Pull Performance Tiles}
 \usage{
-get_performance_tiles(service = c("mobile", "fixed"), quarter_start,
-  quarter_end, sf = FALSE)
+get_performance_tiles(
+  service = c("mobile", "fixed"),
+  quarter,
+  bbox = NULL,
+  sf = FALSE
+)
 }
 \arguments{
 \item{service}{Either 'mobile' or 'fixed' depending on whether you want mobile network or fixed broadband data}
+
+\item{quarter}{Date indicating the start of the desired quarter (e.g., "2020-04-01" for 2020-Q2)}
+
+\item{bbox}{Bounding box to pull tiles from. This way you can just get the specific tiles that you need for an analysis}
 
 \item{sf}{Default `FALSE`. Return object as `sf` dataframe}
 }
@@ -19,5 +27,5 @@ either a tibble or `sf` dataframe
 Pull Performance Tiles
 }
 \examples{
-
+get_performance_tiles(service = "fixed", quarter_start = "2020-04-01", sf = TRUE) # Pulls all fixed broadband tiles from Q2 2020
 }

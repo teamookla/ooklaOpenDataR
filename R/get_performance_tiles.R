@@ -17,7 +17,6 @@
 #' * `devices`: The number of unique devices contributing tests in the tile
 #' * `quadkey`: The quadkey representing the tile. Quadkeys can act as a unique identifier for the tile.
 
-#' @seealso https://docs.microsoft.com/en-us/bingmaps/articles/bing-maps-tile-system
 #' @export
 #'
 #' @examples

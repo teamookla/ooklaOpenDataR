@@ -42,6 +42,3 @@ This equates to a tile that is approximately 610.8 meters by 610.8 meters at the
 get_performance_tiles(service = "fixed", quarter = "2020-04-01", sf = TRUE)
 }
 }
-\seealso{
-https://docs.microsoft.com/en-us/bingmaps/articles/bing-maps-tile-system
-}

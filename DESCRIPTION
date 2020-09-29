@@ -30,14 +30,14 @@ Description: This dataset provides global fixed broadband and
     containing GPS-quality location accuracy.
 License: What license is it under?
 Imports: 
+    slippymath
     arrow,
     httr,
     rlang,
     stringr
 Suggests: 
     sf,
-    testthat,
-    wk
+    testthat
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1

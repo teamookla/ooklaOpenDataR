@@ -32,7 +32,6 @@ License: What license is it under?
 Imports: 
     arrow,
     httr,
-    lubridate,
     rlang,
     stringr
 Suggests: 

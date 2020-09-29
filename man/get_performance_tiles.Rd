@@ -6,8 +6,8 @@
 \usage{
 get_performance_tiles(
   service = c("mobile", "fixed"),
+  year,
   quarter,
-  bbox = NULL,
   sf = FALSE,
   ...
 )
@@ -15,16 +15,16 @@ get_performance_tiles(
 \arguments{
 \item{service}{Either 'mobile' or 'fixed' depending on whether you want mobile network or fixed broadband data}
 
-\item{quarter}{Date indicating the start of the desired quarter (e.g., "2020-04-01" for 2020-Q2)}
+\item{year}{Numeric value indicating the year of the time period of interest (e.g., \code{2020})}
 
-\item{bbox}{Bounding box to pull tiles from. This way you can just get the specific tiles that you need for an analysis}
+\item{quarter}{Numeric value indicating the quarter of interest (e.g., \code{2} for Q2)}
 
-\item{sf}{Default \code{FALSE}. Return object as \code{sf} dataframe}
+\item{sf}{Whether or not to return object as \code{sf} dataframe (default: \code{FALSE})}
 
-\item{...}{Additional arguments passed to \link[arrow:read_parquet]{arrow::read_parquet}}
+\item{...}{Additional arguments passed to \code{\link[arrow:read_parquet]{arrow::read_parquet()}}}
 }
 \value{
-either a data frame or \code{sf} data frame with the following fields:
+A data frame or \code{sf} data frame with the following fields:
 \itemize{
 \item \code{avg_d_kbps}: The average download speed of all tests performed in the tile, represented in kilobits per second
 \item \code{avg_u_kbps}: The average upload speed of all tests performed in the tile, represented in kilobits per second
@@ -42,9 +42,9 @@ This equates to a tile that is approximately 610.8 meters by 610.8 meters at the
 \examples{
 \dontrun{
 # Pulls all fixed broadband tiles from Q2 2020
-get_performance_tiles(service = "fixed", quarter = "2020-04-01", sf = TRUE)
+get_performance_tiles(service = "fixed", year = 2020, quarter = 2, sf = TRUE)
 
 # Get mobile quadkey and average download speeds for Q1 2020
-get_performance_tiles(service = "mobile", quarter = "2020-01-01", col_select = c("quadkey", "avg_d_kbps"))
+get_performance_tiles(service = "mobile", year = 2020, quarter = 1, col_select = c("quadkey", "avg_d_kbps"))
 }
 }

@@ -8,7 +8,8 @@ get_performance_tiles(
   service = c("mobile", "fixed"),
   quarter,
   bbox = NULL,
-  sf = FALSE
+  sf = FALSE,
+  ...
 )
 }
 \arguments{
@@ -19,6 +20,8 @@ get_performance_tiles(
 \item{bbox}{Bounding box to pull tiles from. This way you can just get the specific tiles that you need for an analysis}
 
 \item{sf}{Default \code{FALSE}. Return object as \code{sf} dataframe}
+
+\item{...}{Additional arguments passed to \link[arrow:read_parquet]{arrow::read_parquet}}
 }
 \value{
 either a data frame or \code{sf} data frame with the following fields:

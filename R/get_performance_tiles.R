@@ -8,6 +8,7 @@
 #' @param quarter Date indicating the start of the desired quarter (e.g., "2020-04-01" for 2020-Q2)
 #' @param bbox Bounding box to pull tiles from. This way you can just get the specific tiles that you need for an analysis
 #' @param sf Default `FALSE`. Return object as `sf` dataframe
+#' @param ... Additional arguments passed to [arrow::read_parquet]
 #'
 #' @return either a data frame or `sf` data frame with the following fields:
 #' * `avg_d_kbps`: The average download speed of all tests performed in the tile, represented in kilobits per second
@@ -24,7 +25,7 @@
 #' # Pulls all fixed broadband tiles from Q2 2020
 #' get_performance_tiles(service = "fixed", quarter = "2020-04-01", sf = TRUE)
 #' }
-get_performance_tiles <- function(service = c("mobile", "fixed"), quarter, bbox = NULL, sf = FALSE) {
+get_performance_tiles <- function(service = c("mobile", "fixed"), quarter, bbox = NULL, sf = FALSE, ...) {
   service <- rlang::arg_match(service)
 
   assertthat::assert_that(
@@ -40,5 +41,13 @@ get_performance_tiles <- function(service = c("mobile", "fixed"), quarter, bbox 
 
   result <- httr::GET(url = target_url, httr::progress())
   httr::stop_for_status(result)
-  arrow::read_parquet(httr::content(result))
+
+  tiles <- arrow::read_parquet(httr::content(result), ...)
+
+  # Convert to sf data frame if requested
+  if (sf) {
+    rlang::warn("sf option is currently not implemented")
+  }
+
+  tiles
 }

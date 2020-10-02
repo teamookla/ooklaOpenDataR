@@ -46,7 +46,7 @@ filter_by_quadkey <- function(tiles, bbox) {
 
   assertthat::assert_that(inherits(bbox, "bbox"))
 
-  # make sure the coordinates are lat/lon
+  # make sure the coordinates are lat/lon if sf is installed
   if (rlang::is_installed("sf")) {
     bbox = sf::st_bbox(sf::st_transform(sf::st_as_sfc(bbox), 4326))
   }

@@ -51,7 +51,7 @@ filter_by_quadkey <- function(tiles, bbox) {
   tile_grid <- slippymath::bbox_to_tile_grid(bbox, zoom = 16)
 
   quadkeys <- mapply(tileXYToQuadKey, xTile = tile_grid$tiles$x, yTile = tile_grid$tiles$y, MoreArgs = list(z = 16))
-  perf_tiles <- tiles[tiles$quadkey %in% quadkeys,]
 
-  return(perf_tiles)
+  tiles[tiles$quadkey %in% quadkeys,]
+
 }

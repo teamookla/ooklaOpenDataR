@@ -44,7 +44,7 @@ tileXYToQuadKey <- function(xTile, yTile, z) {
 
 filter_by_quadkey <- function(tiles, bbox) {
 
-  assertthat::assert_that(class(bbox) == "bbox")
+  assertthat::assert_that(inherits(bbox, "bbox"))
 
   # make sure the coordinates are lat/lon
   bbox = sf::st_bbox(sf::st_transform(sf::st_as_sfc(bbox), 4326))

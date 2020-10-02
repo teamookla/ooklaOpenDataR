@@ -17,6 +17,7 @@
 #' * `tests`: The number of tests taken in the tile
 #' * `devices`: The number of unique devices contributing tests in the tile
 #' * `quadkey`: The quadkey representing the tile. Quadkeys can act as a unique identifier for the tile.
+#' * `tile`: The WKT representation of tile geometry
 
 #' @export
 #'
@@ -51,7 +52,7 @@ get_performance_tiles <- function(service = c("mobile", "fixed"), year, quarter,
 
   # Convert to sf data frame if requested
   if (sf) {
-    rlang::warn("sf option is currently not implemented")
+    tiles <- sf::st_as_sf(tiles, wkt = "tile", crs = 4326)
   }
 
   tiles

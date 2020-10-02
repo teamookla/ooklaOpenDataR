@@ -52,7 +52,11 @@ get_performance_tiles <- function(service = c("mobile", "fixed"), year, quarter,
 
   # Convert to sf data frame if requested
   if (sf) {
-    tiles <- sf::st_as_sf(tiles, wkt = "tile", crs = 4326)
+    if (rlang::is_installed("sf")) {
+      tiles <- sf::st_as_sf(tiles, wkt = "tile", crs = 4326)
+    } else {
+      rlang::warn("Please install sf")
+    }
   }
 
   tiles

@@ -7,12 +7,12 @@
 filter_by_quadkey(tiles, bbox)
 }
 \arguments{
-\item{tiles}{Tiles to filter}
+\item{tiles}{Tiles to filter, from \code{get_performance_tiles()}}
 
-\item{bbox}{Bounding box to pull tiles from. This way you can just get the specific tiles that you need for an analysis}
+\item{bbox}{Bounding box to pull tiles from, from \code{st_bbox()}. This way you can just get the specific tiles that you need for an analysis}
 }
 \value{
-either a tibble or `sf` dataframe
+Filtered tiles with the same class as the \code{tiles} input, either data frame or \code{sf}
 }
 \description{
 Filter Performance Tiles by Quadkey

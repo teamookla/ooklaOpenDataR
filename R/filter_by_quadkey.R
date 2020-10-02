@@ -37,16 +37,21 @@ tileXYToQuadKey <- function(xTile, yTile, z) {
 
 #' Filter Performance Tiles by Quadkey
 #'
-#' @param tiles Tiles to filter
-#' @param bbox Bounding box to pull tiles from. This way you can just get the specific tiles that you need for an analysis
+#' @param tiles Tiles to filter, from `get_performance_tiles()`
+#' @param bbox Bounding box to pull tiles from, from `st_bbox()`. This way you can just get the specific tiles that you need for an analysis
 #'
-#' @return either a tibble or `sf` dataframe
+#' @return Filtered tiles with the same class as the `tiles` input, either data frame or `sf`
 
 filter_by_quadkey <- function(tiles, bbox) {
+
+  assertthat::assert_that(class(bbox) == "bbox")
+
   # make sure the coordinates are lat/lon
   bbox = sf::st_bbox(sf::st_transform(sf::st_as_sfc(bbox), 4326))
   tile_grid <- slippymath::bbox_to_tile_grid(bbox, zoom = 16)
+
   quadkeys <- mapply(tileXYToQuadKey, xTile = tile_grid$tiles$x, yTile = tile_grid$tiles$y, MoreArgs = list(z = 16))
-  perf_tiles <- tiles[tiles$quadkey %in% quadkeys]
+  perf_tiles <- tiles[tiles$quadkey %in% quadkeys,]
+
   return(perf_tiles)
 }

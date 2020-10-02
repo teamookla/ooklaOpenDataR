@@ -6,26 +6,45 @@
 \usage{
 get_performance_tiles(
   service = c("mobile", "fixed"),
+  year,
   quarter,
-  bbox = NULL,
-  sf = FALSE
+  sf = FALSE,
+  ...
 )
 }
 \arguments{
 \item{service}{Either 'mobile' or 'fixed' depending on whether you want mobile network or fixed broadband data}
 
-\item{quarter}{Date indicating the start of the desired quarter (e.g., "2020-04-01" for 2020-Q2)}
+\item{year}{Numeric value indicating the year of the time period of interest (e.g., \code{2020})}
 
-\item{bbox}{Bounding box to pull tiles from. This way you can just get the specific tiles that you need for an analysis}
+\item{quarter}{Numeric value indicating the quarter of interest (e.g., \code{2} for Q2)}
 
-\item{sf}{Default `FALSE`. Return object as `sf` dataframe}
+\item{sf}{Whether or not to return object as \code{sf} dataframe (default: \code{FALSE})}
+
+\item{...}{Additional arguments passed to \code{\link[arrow:read_parquet]{arrow::read_parquet()}}}
 }
 \value{
-either a tibble or `sf` dataframe
+A data frame or \code{sf} data frame with the following fields:
+\itemize{
+\item \code{avg_d_kbps}: The average download speed of all tests performed in the tile, represented in kilobits per second
+\item \code{avg_u_kbps}: The average upload speed of all tests performed in the tile, represented in kilobits per second
+\item \code{avg_lat_ms}: The average latency of all tests performed in the tile, represented in milliseconds
+\item \code{tests}: The number of tests taken in the tile
+\item \code{devices}: The number of unique devices contributing tests in the tile
+\item \code{quadkey}: The quadkey representing the tile. Quadkeys can act as a unique identifier for the tile.
+}
 }
 \description{
-Pull Performance Tiles
+\code{get_performance_tiles()} retrieves Ookla broadband performance data for a given quarter.
+Data are grouped and summarized by \href{https://docs.microsoft.com/en-us/bingmaps/articles/bing-maps-tile-system}{quadkey} using a zoom level of 16.
+This equates to a tile that is approximately 610.8 meters by 610.8 meters at the equator (18 arcsecond blocks).
 }
 \examples{
-get_performance_tiles(service = "fixed", quarter_start = "2020-04-01", sf = TRUE) # Pulls all fixed broadband tiles from Q2 2020
+\dontrun{
+# Pulls all fixed broadband tiles from Q2 2020
+get_performance_tiles(service = "fixed", year = 2020, quarter = 2, sf = TRUE)
+
+# Get mobile quadkey and average download speeds for Q1 2020
+get_performance_tiles(service = "mobile", year = 2020, quarter = 1, col_select = c("quadkey", "avg_d_kbps"))
+}
 }

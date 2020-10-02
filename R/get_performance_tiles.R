@@ -22,7 +22,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' # Pulls all fixed broadband tiles from Q2 2020
+#' # Pulls all fixed broadband tiles from Q2 2020 and returns an `sf` data frame
 #' get_performance_tiles(service = "fixed", year = 2020, quarter = 2, sf = TRUE)
 #'
 #' # Get mobile quadkey and average download speeds for Q1 2020

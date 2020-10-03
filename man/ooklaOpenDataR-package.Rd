@@ -23,7 +23,7 @@ This dataset provides global fixed broadband and
 Authors:
 \itemize{
   \item Sheryl Petersen
-  \item Brian Connelly (\href{https://orcid.org/0000-0002-9948-0379}{ORCID})
+  \item Brian Connelly (0000-0002-9948-0379)
 }
 
 Other contributors:

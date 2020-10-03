@@ -1,0 +1,44 @@
+---
+title: "Download Speedtest performance tiles"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{download-tiles}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Introduction to `ooklaOpenDataR`
+
+This dataset provides global fixed broadband and mobile (cellular) network performance metrics in zoom level 16 web mercator tiles (approximately 610.8 meters by 610.8 meters at the equator). Tile geometries are represented in Well Known Text (WKT) projected in EPSG:4326. Download speed, upload speed, and latency are collected via the Speedtest by Ookla applications for Android and iOS and averaged for each tile. Measurements are filtered to results containing GPS-quality location accuracy. Tiles are updated quarterly, currently Q1 2020 to date. 
+
+The goal of this R package is to make it easier to download the specific tiles needed for a project in a reproducible and efficient way. Tiles are hosted through [AWS Open Data](https://registry.opendata.aws/speedtest-global-performance/) and the full documentation for the project is available on [GitHub](https://github.com/teamookla/ookla-open-data). 
+
+# Get mobile network data
+
+Both mobile and fixed data are accessed through `get_performance_data()` by specifying the service type and quarter. 
+
+```{r setup}
+library(ooklaOpenDataR)
+```
+
+To get the mobile network data for Q2 2020, use:
+
+```{r results = 'hide'}
+mobile_tiles_q2 <- get_performance_tiles(service = "mobile", year = 2020, quarter = 2) 
+# change the service argument to "fixed" to get fixed broadband data
+```
+
+Add an option `sf = TRUE` argument to get the tiles as an `sf` data frame for spatial analysis.
+
+```{r}
+# see what the data includes 
+head(mobile_tiles_q2)
+```
+

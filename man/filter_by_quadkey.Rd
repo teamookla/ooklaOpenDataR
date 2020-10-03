@@ -12,7 +12,7 @@ filter_by_quadkey(tiles, bbox)
 \item{bbox}{Bounding box to pull tiles from. This way you can just get the specific tiles that you need for an analysis}
 }
 \value{
-either a tibble or `sf` dataframe
+either a tibble or \code{sf} dataframe
 }
 \description{
 Filter Performance Tiles by Quadkey

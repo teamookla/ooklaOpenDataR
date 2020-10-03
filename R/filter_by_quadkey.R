@@ -40,6 +40,7 @@ tileXYToQuadKey <- function(xTile, yTile, z) {
 #' @param tiles Tiles to filter
 #' @param bbox Bounding box to pull tiles from. This way you can just get the specific tiles that you need for an analysis
 #'
+#' @export
 #' @return either a tibble or `sf` dataframe
 
 filter_by_quadkey <- function(tiles, bbox) {

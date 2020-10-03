@@ -4,13 +4,8 @@
 \alias{get_performance_tiles}
 \title{Pull Performance Tiles}
 \usage{
-get_performance_tiles(
-  service = c("mobile", "fixed"),
-  year,
-  quarter,
-  sf = FALSE,
-  ...
-)
+get_performance_tiles(service = c("mobile", "fixed"), year, quarter,
+  sf = FALSE, ...)
 }
 \arguments{
 \item{service}{Either 'mobile' or 'fixed' depending on whether you want mobile network or fixed broadband data}
@@ -32,6 +27,7 @@ A data frame or \code{sf} data frame with the following fields:
 \item \code{tests}: The number of tests taken in the tile
 \item \code{devices}: The number of unique devices contributing tests in the tile
 \item \code{quadkey}: The quadkey representing the tile. Quadkeys can act as a unique identifier for the tile.
+\item \code{tile}: The WKT representation of tile geometry
 }
 }
 \description{
@@ -41,7 +37,7 @@ This equates to a tile that is approximately 610.8 meters by 610.8 meters at the
 }
 \examples{
 \dontrun{
-# Pulls all fixed broadband tiles from Q2 2020
+# Pulls all fixed broadband tiles from Q2 2020 and returns an `sf` data frame
 get_performance_tiles(service = "fixed", year = 2020, quarter = 2, sf = TRUE)
 
 # Get mobile quadkey and average download speeds for Q1 2020

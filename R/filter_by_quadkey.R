@@ -35,12 +35,25 @@ tileXYToQuadKey <- function(xTile, yTile, z) {
 }
 
 
-#' Filter Performance Tiles by Quadkey
+#' Filter Tiles by Quadkey
 #'
-#' @param tiles Tiles to filter, from `get_performance_tiles()`
-#' @param bbox Bounding box to pull tiles from (crs = 4326), from `st_bbox()`. This way you can just get the specific tiles that you need for an analysis.
+#' @description `filter_by_quadkey()` uses a bounding box to filter the tiles using the quadkey system as an efficient alternative to a spatial join.
 #'
-#' @return Filtered tiles with the same class as the `tiles` input, either data frame or `sf`
+#' @param tiles From `get_performance_tiles()`
+#' @param bbox From `st_bbox()`, filter area for tiles.
+
+#' @return A filtered version of the `tiles` input
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' # Filters tiles to a bounding box specified by coordinates
+#' filter_by_quadkey(tiles, bbox = sf::st_bbox(c(xmin = 16.1, xmax = 16.6, ymax = 48.6, ymin = 47.9), crs = st_crs(4326)))
+#'
+#' # Filters tiles to a bounding box specified by an `sf` object
+#' nc <- st_read(system.file("gpkg/nc.gpkg", package="sf"), quiet = TRUE)
+#' filter_by_quadkey(tiles, bbox = sf::st_bbox(nc))
+#' }
 
 filter_by_quadkey <- function(tiles, bbox) {
 

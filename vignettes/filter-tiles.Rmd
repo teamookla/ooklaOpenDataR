@@ -1,0 +1,94 @@
+---
+title: "Filtering tiles to a specific area"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{tmap-tiles}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Setting up fixed performance data
+
+The global dataset is helpful except when you aren't interested in dealing with global data. Often times, users have a specific area of interest in mind. 
+
+```{r setup}
+library(ooklaOpenDataR)
+library(tmap)
+library(sf)
+library(tidyverse)
+```
+
+The city's open data portal has one boundary file we can use for filtering the tiles. 
+
+```{r}
+minneapolis <- read_sf("https://opendata.arcgis.com/datasets/89f1a70c0cf24d7692e2d02fdf8f4e47_0.geojson") %>%
+  st_transform(4326) # transform to lat/lon
+```
+
+Then I'll download the fixed performance tiles for Q2 2020 and filter it with the Minneapolis boundary. `filter_by_quadkey()` uses a bounding box to efficiently filter the performance tiles from `get_performance_tiles()`.
+
+```{r results = 'hide'}
+mpls_fixed_tiles <- get_performance_tiles(service = "fixed", year = 2020, quarter = 2, sf = TRUE) %>%
+  filter_by_quadkey(bbox = st_bbox(minneapolis))
+```
+
+I find Mbps to be a more intuitive unit for measuring download speed than Kbps. Dividing the Kbps by 1,000 gives the equivalent in Mbps.
+
+```{r}
+mpls_fixed_tiles <- mpls_fixed_tiles %>%
+  mutate(avg_d_mbps = avg_d_kbps / 1000)
+```
+
+In many places the distribution of download speed is skewed by high-speed tests. This is true in Minneapolis as well. 
+
+```{r}
+ggplot(mpls_fixed_tiles) +
+  geom_histogram(aes(x = avg_d_mbps), color = "white") +
+  theme_minimal() +
+  scale_x_continuous(labels = scales::comma_format(suffix = " Mbps")) +
+  labs(
+    y = "Tiles",
+    x = "",
+    title = "Fixed broadband download speed",
+    subtitle = "Minneapolis, MN"
+  ) +
+  theme(axis.title.y = element_text(angle = 0))
+```
+
+# Drawing the map
+
+I'll use `tmap`, if you want to learn more about how that package works, the [vignettes](https://cran.r-project.org/web/packages/tmap/vignettes/tmap-getstarted.html) are very helpful and I learned a lot from [this blog post](http://zevross.com/blog/2018/10/02/creating-beautiful-demographic-maps-in-r-with-the-tidycensus-and-tmap-packages/) by Zev Ross as well.
+
+Just a few lines of code will give a pretty good map. I've added some more styling here to improve on the defaults a bit.
+
+```{r}
+map <- tm_shape(mpls_fixed_tiles) +
+  tm_polygons("avg_d_mbps",
+    palette = "BuPu",
+    border.col = "white",
+    border.alpha = 0.5,
+    title = "Download speed (Mbps)\nMinneapolis, MN",
+    style = "jenks",
+    legend.hist=T
+  ) +
+  tm_shape(minneapolis) +
+  tm_borders(col = "black") +
+  tm_layout(
+    title.size = 1.1,
+    title.position = c("center", "top"),
+    inner.margins = c(0.3, 0.10, 0.10, 0.1),
+    frame = FALSE,
+    legend.text.color = "gray20",
+    legend.title.color = "gray20",
+    legend.title.size = 1
+  ) +
+  tm_legend(legend.outside=T, legend.outside.position="right")
+```
+

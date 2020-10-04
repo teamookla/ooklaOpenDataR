@@ -2,7 +2,7 @@
 title: "Download Speedtest performance tiles"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{download-tiles}
+  %\VignetteIndexEntry{Download Speedtest performance tiles}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

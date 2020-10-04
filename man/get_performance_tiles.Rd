@@ -27,6 +27,7 @@ A data frame or \code{sf} data frame with the following fields:
 \item \code{tests}: The number of tests taken in the tile
 \item \code{devices}: The number of unique devices contributing tests in the tile
 \item \code{quadkey}: The quadkey representing the tile. Quadkeys can act as a unique identifier for the tile.
+\item \code{tile}: The WKT representation of tile geometry
 }
 }
 \description{

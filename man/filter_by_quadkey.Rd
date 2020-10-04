@@ -2,18 +2,28 @@
 % Please edit documentation in R/filter_by_quadkey.R
 \name{filter_by_quadkey}
 \alias{filter_by_quadkey}
-\title{Filter Performance Tiles by Quadkey}
+\title{Filter Tiles by Quadkey}
 \usage{
 filter_by_quadkey(tiles, bbox)
 }
 \arguments{
-\item{tiles}{Tiles to filter}
+\item{tiles}{From \code{get_performance_tiles()}}
 
-\item{bbox}{Bounding box to pull tiles from. This way you can just get the specific tiles that you need for an analysis}
+\item{bbox}{From \code{st_bbox()}, filter area for tiles.}
 }
 \value{
-either a tibble or \code{sf} dataframe
+A filtered version of the \code{tiles} input
 }
 \description{
-Filter Performance Tiles by Quadkey
+\code{filter_by_quadkey()} uses a bounding box to filter the tiles using the quadkey system as an efficient alternative to a spatial join.
+}
+\examples{
+\dontrun{
+# Filters tiles to a bounding box specified by coordinates
+filter_by_quadkey(tiles, bbox = sf::st_bbox(c(xmin = 16.1, xmax = 16.6, ymax = 48.6, ymin = 47.9), crs = st_crs(4326)))
+
+# Filters tiles to a bounding box specified by an `sf` object
+nc <- st_read(system.file("gpkg/nc.gpkg", package="sf"), quiet = TRUE)
+filter_by_quadkey(tiles, bbox = sf::st_bbox(nc))
+}
 }

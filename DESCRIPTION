@@ -17,7 +17,7 @@ Authors@R:
              comment = c(ORCID = "0000-0002-9948-0379")),
       person(given = "Ookla",
              role = c("cph", "fnd"),
-             email = "TODO@ookla.com"))
+             email = "good@ookla.com"))
 Maintainer: Katie Jolly <katie.jolly@ookla.com>
 Description: This dataset provides global fixed broadband and
     mobile (cellular) network performance metrics in zoom level 16 web
@@ -40,7 +40,8 @@ Suggests:
     sf,
     testthat,
     knitr,
-    rmarkdown
+    rmarkdown,
+    mapview
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)

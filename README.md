@@ -12,7 +12,8 @@ Ookla’s [open data
 program](https://registry.opendata.aws/speedtest-global-performance/).
 This dataset provides global fixed broadband and mobile (cellular)
 network performance metrics in zoom level 16 web mercator tiles
-(approximately 610.8 meters by 610.8 meters at the equator).
+(approximately 610.8 meters by 610.8 meters at the equator). The tiles
+are updated quarterly.
 
 ## Installation
 
@@ -45,3 +46,15 @@ fixed_q2_sf <- get_performance_tiles(service = "mobile", quarter = 2, year = 202
 
 The package vignettes demonstrate how to filter the tiles to a
 particular area of interest using the `filter_by_quadkey()` function.
+
+## License
+
+The dataset is licensed under the [Creative Commons license for
+non-commerical use](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+**Recommended citation**
+
+Speedtest® by Ookla® Global Fixed and Mobile Network Performance Maps.
+Based on analysis by Ookla of Speedtest Intelligence® data for \[DATA
+TIME PERIOD\]. Provided by Ookla and accessed \[DAY MONTH YEAR\]. Ookla
+trademarks used under license and reprinted with permission.

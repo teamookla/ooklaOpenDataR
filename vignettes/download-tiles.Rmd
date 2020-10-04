@@ -7,7 +7,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r, include = FALSE}
+```{r opts, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -30,14 +30,14 @@ library(ooklaOpenDataR)
 
 To get the mobile network data for Q2 2020, use:
 
-```{r results = 'hide'}
+```{r tiles, results = 'hide'}
 mobile_tiles_q2 <- get_performance_tiles(service = "mobile", year = 2020, quarter = 2) 
 # change the service argument to "fixed" to get fixed broadband data
 ```
 
 Add an option `sf = TRUE` argument to get the tiles as an `sf` data frame for spatial analysis.
 
-```{r}
+```{r head}
 # see what the data includes 
 head(mobile_tiles_q2)
 ```

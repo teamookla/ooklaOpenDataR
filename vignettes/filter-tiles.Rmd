@@ -85,7 +85,7 @@ minneapolis <- read_sf("https://opendata.arcgis.com/datasets/89f1a70c0cf24d7692e
 
 Then I'll download the fixed performance tiles for Q2 2020 and filter them with the Minneapolis boundary. 
 
-```{r results = 'hide'}
+```{r mpls_fixed_tiles, results = 'hide'}
 mpls_fixed_tiles <- get_performance_tiles(service = "fixed", year = 2020, quarter = 2, sf = TRUE) %>%
   filter_by_quadkey(bbox = st_bbox(minneapolis))
 ```

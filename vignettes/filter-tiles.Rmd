@@ -35,21 +35,21 @@ Type in the place in the search bar: `Marrakesh, Morrocco`
 knitr::include_graphics("marrakesh_search.png")
 ```
 
-Once you have the area highlighted, you can start choosing coordinates. I'll start at the top to get the `ymax` coordinate. You want to pick a point that's at least includes the northernmost edge of your area.
+Once you have the area highlighted, you can start choosing coordinates. We'll start at the top to get the `ymax` coordinate. You want to pick a point that's at least includes the northernmost edge of your area.
 
 ```{r marrakesh_top, echo = FALSE, out.width="500px"}
 knitr::include_graphics("marrakesh_top.png")
 ```
 
-I usually round my coordinates for simplicity so I'll say `ymax = 31.72`.
+I usually round my coordinates for simplicity so we'll say `ymax = 31.72`.
 
-Next I'll repeat the process and click on the rightmost point to get the `xmax` coordinate.
+Next we'll repeat the process and click on the rightmost point to get the `xmax` coordinate.
 
 ```{r marrakesh_right, echo = FALSE, out.width="500px"}
 knitr::include_graphics("marrakesh_right.png")
 ```
 
-Based on this point I'll say `xmax = -7.88`. Repeat this process again for the bottom (`ymin`) and leftmost (`xmin`) coordinates. 
+Based on this point we'll say `xmax = -7.88`. Repeat this process again for the bottom (`ymin`) and leftmost (`xmin`) coordinates. 
 
 Once you've gathered all the coordinates, you can create the bounding box with the following code:
 
@@ -64,7 +64,7 @@ marrakesh_fixed_tiles <- get_performance_tiles(service = "fixed", year = 2020, q
   filter_by_quadkey(bbox = bbox)
 ```
 
-Then to check that the tiles are in the right place I'll use `mapview()` to make a quick interactive map with a basemap.
+Then to check that the tiles are in the right place we'll use `mapview()` to make a quick interactive map with a basemap.
 
 ```{r mapview_marrakesh}
 mapview(marrakesh_fixed_tiles)
@@ -74,7 +74,7 @@ Success!
 
 ## Filter tiles by shapefile
 
-If you do have a shapefile (or other geographic data file, geoJSON for example), the process is much simpler. I'll use Minneapolis, MN as an example here.
+If you do have a shapefile (or other geographic data file, geoJSON for example), the process is much simpler. We'll use Minneapolis, MN as an example here.
 
 The city's open data portal has a boundary file we can use for filtering the tiles. 
 
@@ -83,7 +83,7 @@ minneapolis <- read_sf("https://opendata.arcgis.com/datasets/89f1a70c0cf24d7692e
   st_transform(4326) # transform to lat/lon
 ```
 
-Then I'll download the fixed performance tiles for Q2 2020 and filter them with the Minneapolis boundary. 
+Then we'll download the fixed performance tiles for Q2 2020 and filter them with the Minneapolis boundary. 
 
 ```{r mpls_fixed_tiles, results = 'hide'}
 mpls_fixed_tiles <- get_performance_tiles(service = "fixed", year = 2020, quarter = 2, sf = TRUE) %>%

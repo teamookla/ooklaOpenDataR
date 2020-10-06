@@ -10,15 +10,13 @@
 This dataset provides global fixed broadband and
     mobile (cellular) network performance metrics in zoom level 16 web
     mercator tiles (approximately 610.8 meters by 610.8 meters at the
-    equator).  Data is provided in both Shapefile format as well as Apache
-    Parquet with geometries represented in Well Known Text (WKT) projected
-    in EPSG:4326.  Download speed, upload speed, and latency are collected
+    equator). Download speed, upload speed, and latency are collected
     via the Speedtest by Ookla applications for Android and iOS and
     averaged for each tile.  Measurements are filtered to results
     containing GPS-quality location accuracy.
 }
 \author{
-\strong{Maintainer}: Katie Jolly \email{TODO@ookla.com}
+\strong{Maintainer}: Katie Jolly
 
 Authors:
 \itemize{
@@ -28,7 +26,7 @@ Authors:
 
 Other contributors:
 \itemize{
-  \item Ookla \email{TODO@ookla.com} [copyright holder, funder]
+  \item Ookla \email{opendata@ookla.com} [copyright holder, funder]
 }
 
 }

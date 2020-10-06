@@ -25,7 +25,7 @@ library(mapview) # check our tiles
 
 ## Filter tiles by manual coordinates
 
-Choosing coordinates from somewhere like Google maps is flexible and quick, but not necessarily reproducible or sustainable. When you don't have a boundary shapefile, though, it's a good alternative. I'll explain how to do this with Google maps, but any source where you can find coordinates would work.
+Choosing coordinates from somewhere like Google maps is flexible and quick, but not necessarily reproducible or sustainable. When you don't have a boundary shapefile, though, it's a good alternative. We'll see how to do this with Google maps, but any source where you can find coordinates would work.
 
 Let's say you're interested in the fixed broadband performance around Marrakesh, Morrocco but don't have a shapefile of the boundary on hand. We can still approximate it!
 

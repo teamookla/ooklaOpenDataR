@@ -22,7 +22,7 @@ The goal of this R package is to make it easier to download the specific tiles n
 
 # Get mobile network data
 
-Both mobile and fixed data are accessed through `get_performance_data()` by specifying the service type and quarter. 
+Both mobile and fixed data are accessed through `get_performance_tiles()` by specifying the service type and quarter. 
 
 ```{r setup}
 library(ooklaOpenDataR)
@@ -41,4 +41,3 @@ Add an option `sf = TRUE` argument to get the tiles as an `sf` data frame for sp
 # see what the data includes 
 head(mobile_tiles_q2)
 ```
-

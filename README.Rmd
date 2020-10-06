@@ -41,7 +41,7 @@ mobile_q2 <- get_performance_tiles(service = "mobile", quarter = 2, year = 2020)
 Or you can get the fixed broadband data for the same quarter as an `sf` data frame with the `sf` argument.
 
 ```{r fixed_example, eval = FALSE}
-fixed_q2_sf <- get_performance_tiles(service = "mobile", quarter = 2, year = 2020)
+fixed_q2_sf <- get_performance_tiles(service = "mobile", quarter = 2, year = 2020, sf = TRUE)
 ```
 
 The package vignettes demonstrate how to filter the tiles to a particular area of interest using the `filter_by_quadkey()` function. 

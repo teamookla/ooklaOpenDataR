@@ -38,7 +38,8 @@ Simply change the service argument to "fixed" to get fixed broadband data, or th
 
 For spatial analysis, add an optional sf = TRUE argument to get the tiles as an sf data frame. We'll use this in the filter-tiles vignette.
 
+Let's see what the data includes by viewing the first few rows:
+
 ```{r head}
-# see what the data includes 
 head(mobile_tiles_q2)
 ```

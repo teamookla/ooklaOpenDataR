@@ -35,7 +35,7 @@ mobile_tiles_q2 <- get_performance_tiles(service = "mobile", year = 2020, quarte
 # change the service argument to "fixed" to get fixed broadband data
 ```
 
-Add an option `sf = TRUE` argument to get the tiles as an `sf` data frame for spatial analysis.
+Add an optional `sf = TRUE` argument to get the tiles as an `sf` data frame for spatial analysis.
 
 ```{r head}
 # see what the data includes 

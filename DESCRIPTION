@@ -28,7 +28,7 @@ Description: This dataset provides global fixed broadband and
     via the Speedtest by Ookla applications for Android and iOS and
     averaged for each tile.  Measurements are filtered to results
     containing GPS-quality location accuracy.
-License: What license is it under?
+License: MIT + file LICENSE
 Imports: 
     arrow,
     assertthat,

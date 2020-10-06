@@ -7,44 +7,54 @@
 
 <!-- badges: end -->
 
-The goal of ooklaOpenDataR is to …
+The goal of ooklaOpenDataR is to make it easier to access data from
+Ookla’s [open data
+program](https://registry.opendata.aws/speedtest-global-performance/).
+This dataset provides global fixed broadband and mobile (cellular)
+network performance metrics in zoom level 16 web mercator tiles
+(approximately 610.8 meters by 610.8 meters at the equator). The tiles
+are updated quarterly.
 
 ## Installation
 
-You can install the released version of ooklaOpenDataR from
-[CRAN](https://CRAN.R-project.org) with:
+You can install the development version from
+[GitHub](https://github.com/) with:
 
 ``` r
-install.packages("ooklaOpenDataR")
+# install.packages("remotes")
+remotes::install_github("teamookla/ooklaOpenDataR")
 ```
 
-And the development version from [GitHub](https://github.com/) with:
+## Examples
+
+This is how you can get the global dataset for mobile network data in Q2
+2020:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("teamookla/ooklaOpenDataR")
+library(ooklaOpenDataR)
+
+mobile_q2 <- get_performance_tiles(service = "mobile", quarter = 2, year = 2020)
 ```
 
-## Example
-
-This is a basic example which shows you how to solve a common problem:
+Or you can get the fixed broadband data for the same quarter as an `sf`
+data frame with the `sf`
+argument.
 
 ``` r
-# library(ooklaOpenDataR)
-## basic example code
+fixed_q2_sf <- get_performance_tiles(service = "mobile", quarter = 2, year = 2020)
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+The package vignettes demonstrate how to filter the tiles to a
+particular area of interest using the `filter_by_quadkey()` function.
 
-``` r
-# summary(cars)
-```
+## License
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date.
+The dataset is licensed under the [Creative Commons license for
+non-commerical use](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
-You can also embed plots, for example:
+**Recommended citation**
 
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub\!
+Speedtest® by Ookla® Global Fixed and Mobile Network Performance Maps.
+Based on analysis by Ookla of Speedtest Intelligence® data for \[DATA
+TIME PERIOD\]. Provided by Ookla and accessed \[DAY MONTH YEAR\]. Ookla
+trademarks used under license and reprinted with permission.

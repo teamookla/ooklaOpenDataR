@@ -17,7 +17,7 @@ Authors@R:
              comment = c(ORCID = "0000-0002-9948-0379")),
       person(given = "Ookla",
              role = c("cph", "fnd"),
-             email = "good@ookla.com"))
+             email = "opendata@ookla.com"))
 Maintainer: Katie Jolly <katie.jolly@ookla.com>
 Description: This dataset provides global fixed broadband and
     mobile (cellular) network performance metrics in zoom level 16 web

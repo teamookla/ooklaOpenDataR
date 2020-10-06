@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 
 The Speedtest by Ookla Global Fixed and Mobile Network Performance Maps dataset provides global fixed broadband and mobile (cellular) network performance metrics in zoom level 16 web Mercator tiles (approximately 610.8 meters by 610.8 meters at the equator). Tile geometries are represented in Well Known Text (WKT) projected in EPSG:4326. Download speed, upload speed, and latency are collected via the Speedtest by Ookla applications for Android and iOS and averaged for each tile. Measurements are filtered to results containing GPS-quality location accuracy. Tiles are updated quarterly, currently Q1 2020 to date. 
 
-The goal of this R package is to make it easier to download the specific tiles needed for a project in a reproducible and efficient way. Tiles are hosted through [AWS Open Data](https://registry.opendata.aws/speedtest-global-performance/) and the full documentation for the project is available on [GitHub](https://github.com/teamookla/ookla-open-data). 
+The goal of this R package is to make it easier to download the specific tiles needed for a project in a reproducible and efficient way. Tiles are hosted through [AWS Open Data](https://registry.opendata.aws/speedtest-global-performance/), and the full documentation for the project is available on [GitHub](https://github.com/teamookla/ookla-open-data). 
 
 # Get mobile network data
 

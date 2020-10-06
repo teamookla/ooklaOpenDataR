@@ -54,7 +54,7 @@ Based on this point I'll say `xmax = -7.88`. Repeat this process again for the b
 Once you've gathered all the coordinates, you can create the bounding box with the following code:
 
 ```{r bbox}
-bbox <- st_bbox(c(xmin = -8.13, xmax = -7.88, ymax =31.72, ymin = 31.55), crs = st_crs(4326)) # 4326 means that the coordinates are latitudes and longitudes
+bbox <- st_bbox(c(xmin = -8.13, xmax = -7.88, ymax =31.72, ymin = 31.55), crs = st_crs(4326)) # 4326 means that the coordinates are latitude and longitude
 ```
 
 Pull the global dataset for fixed data in Q2 2020 and filter with the `bbox` object.

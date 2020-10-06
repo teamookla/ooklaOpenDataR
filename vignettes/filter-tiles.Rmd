@@ -15,7 +15,9 @@ knitr::opts_chunk$set(
 ```
 
 
-The global dataset is helpful except when you aren't interested in dealing with global data. Often times, users have a specific area of interest in mind. The `filter_by_quadkey()` function is one way of dealing with this issue. The function takes a set of tiles (from `get_performance_tiles()`) and a bounding box (from `st_bbox()`) and returns just the tiles within the set bounding box. There are two main ways of setting this box: a shapefile or manually input coordinates.
+The global dataset is helpful, except when you aren't interested in dealing with global data. Often times, users have a specific area of interest in mind. The `filter_by_quadkey()` function is one way of dealing with this issue. The function takes a set of tiles (from `get_performance_tiles()`) and a bounding box (from `st_bbox()`) and returns just the tiles within the set bounding box.   
+
+There are two main ways of setting this box: a shapefile or manually input coordinates. We'll walk through both. 
 
 ```{r setup}
 library(ooklaOpenDataR)

@@ -40,7 +40,7 @@ tileXYToQuadKey <- function(xTile, yTile, z) {
 #' @description `filter_by_quadkey()` uses a bounding box to filter the tiles using the quadkey system as an efficient alternative to a spatial join.
 #'
 #' @param tiles From `get_performance_tiles()`
-#' @param bbox From `st_bbox()`, filter area for tiles.
+#' @param bbox [sf::st_bbox()] bounding box describing area from which to include tiles.
 
 #' @return A filtered version of the `tiles` input
 #' @export

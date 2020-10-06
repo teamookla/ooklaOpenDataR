@@ -9,7 +9,7 @@ filter_by_quadkey(tiles, bbox)
 \arguments{
 \item{tiles}{From \code{get_performance_tiles()}}
 
-\item{bbox}{From \code{st_bbox()}, filter area for tiles.}
+\item{bbox}{\code{\link[sf:st_bbox]{sf::st_bbox()}} bounding box describing area from which to include tiles.}
 }
 \value{
 A filtered version of the \code{tiles} input

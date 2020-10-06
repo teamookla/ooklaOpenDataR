@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of ooklaOpenDataR is to make it easier to access data from Ookla's [open data program](https://registry.opendata.aws/speedtest-global-performance/). This dataset provides global fixed broadband and mobile (cellular) network performance metrics in zoom level 16 web mercator tiles (approximately 610.8 meters by 610.8 meters at the equator). The tiles are updated quarterly. 
+The goal of ooklaOpenDataR is to make it easier to access data from Ookla's [open data program](https://registry.opendata.aws/speedtest-global-performance/). This dataset provides global fixed broadband and mobile (cellular) network performance metrics in zoom level 16 [web Mercator tiles](https://en.wikipedia.org/wiki/Tiled_web_map) (approximately 610.8 meters by 610.8 meters at the equator). The tiles are updated quarterly. 
 
 ## Installation
 

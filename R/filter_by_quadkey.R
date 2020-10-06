@@ -55,6 +55,7 @@ tileXYToQuadKey <- function(xTile, yTile, z) {
 #' filter_by_quadkey(tiles, bbox = sf::st_bbox(nc))
 #' }
 
+
 filter_by_quadkey <- function(tiles, bbox) {
 
   assertthat::assert_that(inherits(bbox, "bbox"))

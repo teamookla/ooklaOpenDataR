@@ -28,7 +28,7 @@ Authors:
 
 Other contributors:
 \itemize{
-  \item Ookla \email{TODO@ookla.com} [copyright holder, funder]
+  \item Ookla \email{opendata@ookla.com} [copyright holder, funder]
 }
 
 }

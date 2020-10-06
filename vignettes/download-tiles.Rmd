@@ -32,10 +32,11 @@ To get the mobile network data for Q2 2020, use:
 
 ```{r tiles, results = 'hide'}
 mobile_tiles_q2 <- get_performance_tiles(service = "mobile", year = 2020, quarter = 2) 
-# change the service argument to "fixed" to get fixed broadband data
 ```
 
-Add an optional `sf = TRUE` argument to get the tiles as an `sf` data frame for spatial analysis.
+Simply change the service argument to "fixed" to get fixed broadband data, or the year and quarter arguments to retrieve data from different quarters.
+
+For spatial analysis, add an optional sf = TRUE argument to get the tiles as an sf data frame. We'll use this in the filter-tiles vignette.
 
 ```{r head}
 # see what the data includes 

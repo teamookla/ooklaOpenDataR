@@ -6,7 +6,8 @@ Version: 0.1.0
 Authors@R:
     c(person(given = "Katie",
              family = "Jolly",
-             role = c("aut", "cre")),
+             role = c("aut", "cre"),
+             email = "katie.jolly@ookla.com"),
       person(given = "Sheryl",
              family = "Petersen",
              role = "aut"),
@@ -21,10 +22,10 @@ Maintainer: Katie Jolly <katie.jolly@ookla.com>
 Description: This dataset provides global fixed broadband and
     mobile (cellular) network performance metrics in zoom level 16 web
     mercator tiles (approximately 610.8 meters by 610.8 meters at the
-    equator). Download speed, upload speed, and latency are collected
-    via the Speedtest by Ookla applications for Android and iOS and
-    averaged for each tile.  Measurements are filtered to results
-    containing GPS-quality location accuracy.
+    equator). Download speed, upload speed, and latency are collected via
+    the Speedtest by Ookla applications for Android and iOS and averaged
+    for each tile.  Measurements are filtered to results containing
+    GPS-quality location accuracy.
 License: MIT + file LICENSE
 Imports: 
     arrow,
@@ -34,13 +35,14 @@ Imports:
     slippymath,
     stringr
 Suggests: 
-    sf,
-    testthat,
     knitr,
+    mapview,
     rmarkdown,
-    mapview
+    sf,
+    testthat
+VignetteBuilder: 
+    knitr
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
-VignetteBuilder: knitr

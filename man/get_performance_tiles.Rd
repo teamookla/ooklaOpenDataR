@@ -4,8 +4,13 @@
 \alias{get_performance_tiles}
 \title{Pull Performance Tiles}
 \usage{
-get_performance_tiles(service = c("mobile", "fixed"), year, quarter,
-  sf = FALSE, ...)
+get_performance_tiles(
+  service = c("mobile", "fixed"),
+  year,
+  quarter,
+  sf = FALSE,
+  ...
+)
 }
 \arguments{
 \item{service}{Either 'mobile' or 'fixed' depending on whether you want mobile network or fixed broadband data}

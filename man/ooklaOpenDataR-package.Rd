@@ -16,12 +16,12 @@ This dataset provides global fixed broadband and
     containing GPS-quality location accuracy.
 }
 \author{
-\strong{Maintainer}: Katie Jolly
+\strong{Maintainer}: Katie Jolly \email{katie.jolly@ookla.com}
 
 Authors:
 \itemize{
   \item Sheryl Petersen
-  \item Brian Connelly (0000-0002-9948-0379)
+  \item Brian Connelly (\href{https://orcid.org/0000-0002-9948-0379}{ORCID})
 }
 
 Other contributors:

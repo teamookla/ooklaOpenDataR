@@ -27,9 +27,9 @@ library(mapview) # check our tiles
 
 Choosing coordinates from somewhere like Google maps is flexible and quick, but not necessarily reproducible or sustainable. When you don't have a boundary shapefile, though, it's a good alternative. We'll see how to do this with Google maps, but any source where you can find coordinates would work.
 
-Let's say you're interested in the fixed broadband performance around Marrakesh, Morrocco but don't have a shapefile of the boundary on hand. We can still approximate it!
+Let's say you're interested in the fixed broadband performance around Marrakesh, Morocco but don't have a shapefile of the boundary on hand. We can still approximate it!
 
-Type in the place in the search bar: `Marrakesh, Morrocco`
+Type in the place in the search bar: `Marrakesh, Morocco`
 
 ```{r search, echo = FALSE, out.width="500px"}
 knitr::include_graphics("marrakesh_search.png")

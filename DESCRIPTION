@@ -1,7 +1,7 @@
 Type: Package
 Package: ooklaOpenDataR
-Title: Speedtest by Ookla Global Fixed and Mobile Network
-    Performance Map Tiles
+Title: Tools for working with 'Speedtest by Ookla' Global Fixed
+    and Mobile Network Performance Map Tiles data set
 Version: 0.1.0
 Authors@R:
     c(person(given = "Katie",
@@ -19,13 +19,15 @@ Authors@R:
              role = c("cph", "fnd"),
              email = "opendata@ookla.com"))
 Maintainer: Katie Jolly <katie.jolly@ookla.com>
-Description: This dataset provides global fixed broadband and
-    mobile (cellular) network performance metrics in zoom level 16 web
-    mercator tiles (approximately 610.8 meters by 610.8 meters at the
-    equator). Download speed, upload speed, and latency are collected via
-    the Speedtest by Ookla applications for Android and iOS and averaged
-    for each tile.  Measurements are filtered to results containing
-    GPS-quality location accuracy.
+Description: 'ooklaOpenDataR' includes tools for accessing
+    and working with the 'Speedtest by Ookla' Global Fixed and Mobile
+    Network Performance Maps open data set. This data set provides network
+    performance metrics in zoom level 16 web Mercator tiles (approximately
+    610.8 meters by 610.8 meters at the equator). Download speed, upload
+    speed, and latency are collected via the 'Speedtest by Ookla'
+    applications for 'Android' and 'iOS' and averaged for each tile.
+    Measurements are filtered to results containing GPS-quality location
+    accuracy.
 License: MIT + file LICENSE
 Imports: 
     arrow,

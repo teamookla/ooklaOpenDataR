@@ -1,6 +1,6 @@
 Type: Package
 Package: ooklaOpenDataR
-Title: Work with 'Speedtest by Ookla' Global Network Performance Data
+Title: Work with 'Speedtest by Ookla' Global Internet Performance Data
 Version: 0.1.0
 Authors@R:
     c(person(given = "Katie",

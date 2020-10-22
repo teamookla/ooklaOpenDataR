@@ -4,16 +4,17 @@
 \name{ooklaOpenDataR-package}
 \alias{ooklaOpenDataR}
 \alias{ooklaOpenDataR-package}
-\title{ooklaOpenDataR: Speedtest by Ookla Global Fixed and Mobile Network
-    Performance Map Tiles}
+\title{ooklaOpenDataR: Work with 'Speedtest by Ookla' Global Internet Performance Data}
 \description{
-This dataset provides global fixed broadband and
-    mobile (cellular) network performance metrics in zoom level 16 web
-    mercator tiles (approximately 610.8 meters by 610.8 meters at the
-    equator). Download speed, upload speed, and latency are collected
-    via the Speedtest by Ookla applications for Android and iOS and
-    averaged for each tile.  Measurements are filtered to results
-    containing GPS-quality location accuracy.
+The 'Speedtest by Ookla' Global Fixed and Mobile
+    Network Performance Maps open data set provides network performance
+    metrics in zoom level 16 web Mercator tiles (approximately 610.8
+    meters by 610.8 meters at the equator). Download speed, upload speed,
+    and latency are collected via the 'Speedtest by Ookla' applications
+    for 'Android' and 'iOS' and averaged for each tile.  Measurements are
+    filtered to results containing GPS-quality location accuracy.
+    'ooklaOpenDataR' includes tools for retrieving and working with this
+    data set.
 }
 \author{
 \strong{Maintainer}: Katie Jolly \email{katie.jolly@ookla.com}

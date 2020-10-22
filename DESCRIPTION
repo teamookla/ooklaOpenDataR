@@ -29,9 +29,8 @@ Description: The 'Speedtest by Ookla' Global Fixed and Mobile
     data set.
 License: MIT + file LICENSE
 Imports: 
-    arrow,
+    arrow (>= 2.0.0),
     assertthat,
-    httr,
     rlang,
     slippymath,
     stringr

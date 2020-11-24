@@ -43,12 +43,10 @@ get_performance_tiles <- function(service = c("mobile", "fixed"), year, quarter,
 
   quarter_start <- paste(year, sprintf("%02d", ((quarter - 1) * 3) + 1), "01", sep = "-")
 
-  target_url <- stringr::str_glue("https://ookla-open-data.s3.us-west-2.amazonaws.com/parquet/performance/type={service}/year={year}/quarter={quarter}/{quarter_start}_performance_{service}_tiles.parquet")
+  object_uri <- stringr::str_glue("s3://ookla-open-data/parquet/performance/type={service}/year={year}/quarter={quarter}/{quarter_start}_performance_{service}_tiles.parquet")
 
-  result <- httr::GET(url = target_url, httr::progress())
-  httr::stop_for_status(result)
-
-  tiles <- arrow::read_parquet(httr::content(result), ...)
+  rlang::inform(stringr::str_glue("Downloading data from '{object_uri}'..."))
+  tiles <- arrow::read_parquet(object_uri, anonymous = TRUE, ...)
 
   # Convert to sf data frame if requested
   if (sf) {

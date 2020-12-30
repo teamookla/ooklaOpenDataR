@@ -4,12 +4,16 @@
 \alias{filter_by_quadkey}
 \title{Filter Tiles by Quadkey}
 \usage{
-filter_by_quadkey(tiles, bbox)
+filter_by_quadkey(tiles, bbox, parallel = FALSE, ncores = NULL)
 }
 \arguments{
 \item{tiles}{From \code{get_performance_tiles()}}
 
 \item{bbox}{\code{\link[sf:st_bbox]{sf::st_bbox()}} bounding box describing area from which to include tiles.}
+
+\item{parallel}{Enables use of a parallel backend using \code{\link[parallel:mclapply]{parallel::mcmapply()}}. Turned off by default. This setting is not recommended for use on Windows machines.}
+
+\item{ncores}{Explicitly set number of cores to use if using \code{\link[parallel:mclapply]{parallel::mcmapply()}} is enabled. Will otherwise default the max available minus 1.}
 }
 \value{
 A filtered version of the \code{tiles} input
@@ -23,7 +27,8 @@ A filtered version of the \code{tiles} input
 filter_by_quadkey(tiles, bbox = sf::st_bbox(c(xmin = 16.1, xmax = 16.6, ymax = 48.6, ymin = 47.9), crs = st_crs(4326)))
 
 # Filters tiles to a bounding box specified by an `sf` object
-nc <- st_read(system.file("gpkg/nc.gpkg", package="sf"), quiet = TRUE)
+nc <- st_read(system.file("gpkg/nc.gpkg", package = "sf"), quiet = TRUE)
 filter_by_quadkey(tiles, bbox = sf::st_bbox(nc))
 }
+
 }

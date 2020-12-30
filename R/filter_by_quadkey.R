@@ -41,6 +41,8 @@ tileXYToQuadKey <- function(xTile, yTile, z) {
 #'
 #' @param tiles From `get_performance_tiles()`
 #' @param bbox [sf::st_bbox()] bounding box describing area from which to include tiles.
+#' @param parallel Enables use of a parallel backend using [parallel::mcmapply()]. Turned off by default. This setting is not recommended for use on Windows machines.
+#' @param ncores Explicitly set number of cores to use if using [parallel::mcmapply()] is enabled. Will otherwise default the max available minus 1.
 
 #' @return A filtered version of the `tiles` input
 #' @export
@@ -55,17 +57,35 @@ tileXYToQuadKey <- function(xTile, yTile, z) {
 #' filter_by_quadkey(tiles, bbox = sf::st_bbox(nc))
 #' }
 #'
-filter_by_quadkey <- function(tiles, bbox) {
+filter_by_quadkey <- function(tiles, bbox, parallel = FALSE, ncores = NULL) {
   assertthat::assert_that(inherits(bbox, "bbox"))
+
+  # Check if paralellization is feasible
+  if(parallel) {
+    assertthat::see_if(.Platform$OS.type != "windows", msg = "Parallel likely will not work on Windows.")
+    if(is.null(ncores)) ncores = parallel::detectCores()-1L
+    else {
+      assertthat::assert_that(is.numeric(ncores))
+      assertthat::see_if(ncores <= parallel::detectCores(), msg = "More cores selected than are available.")
+    }
+  }
 
   # make sure the coordinates are lat/lon if sf is installed
   if (rlang::is_installed("sf")) {
     bbox <- sf::st_bbox(sf::st_transform(sf::st_as_sfc(bbox), 4326))
   }
 
-  tile_grid <- slippymath::bbox_to_tile_grid(bbox, zoom = 16)
+  tile_grid <- slippymath::bbox_to_tile_grid(bbox, zoom = 16L)
 
-  quadkeys <- mapply(tileXYToQuadKey, xTile = tile_grid$tiles$x, yTile = tile_grid$tiles$y, MoreArgs = list(z = 16))
+  # Use parallelism if enabled and default to regular mapply otherwise
+  if(!parallel) {
+    quadkeys <- mapply(tileXYToQuadKey, xTile = tile_grid$tiles$x, yTile = tile_grid$tiles$y, MoreArgs = list(z = 16L))
+  } else {
+    quadkeys <- parallel::mcmapply(tileXYToQuadKey, xTile = tile_grid$tiles$x, yTile = tile_grid$tiles$y, MoreArgs = list(z = 16L),
+                         SIMPLIFY = TRUE, USE.NAMES = TRUE,
+                         mc.preschedule = TRUE, mc.set.seed = TRUE,
+                         mc.silent = FALSE, mc.cores = ncores, mc.cleanup = TRUE)
+  }
 
   tiles[tiles$quadkey %in% quadkeys, ]
 }

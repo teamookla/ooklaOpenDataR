@@ -34,7 +34,7 @@ get_performance_tiles <- function(service = c("mobile", "fixed"), year, quarter,
 
   assertthat::assert_that(
     assertthat::is.count(year),
-    year >= 2020,
+    year >= 2019,
     assertthat::is.count(quarter),
     quarter >= 1,
     quarter <= 4,
